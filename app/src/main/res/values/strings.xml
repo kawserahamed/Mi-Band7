@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MI Band 7</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="english">English</string>
+    <string name="download">Download</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="how_to_install">How to Install</string>
+    <string name="about">About</string>
+</resources>
