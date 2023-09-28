@@ -1,4 +1,4 @@
-package com.ahamed.miband6;
+package com.ahamed.miband6.ui;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.ahamed.miband6.R;
 import com.ahamed.miband6.adapter.BandAdapter;
 import com.ahamed.miband6.databinding.FragmentHomeBinding;
 import com.ahamed.miband6.model.BandModel;
