@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahamed.miband6.R;
+import com.ahamed.miband6.callback.WatchClick;
 import com.ahamed.miband6.model.BandModel;
 import com.bumptech.glide.Glide;
 
@@ -21,10 +22,12 @@ public class BandAdapter extends RecyclerView.Adapter<BandAdapter.BandViewHolder
 
     private List<BandModel> list;
     private Context context;
+    private WatchClick callback;
 
-    public BandAdapter(List<BandModel> list, Context context) {
+    public BandAdapter(List<BandModel> list, Context context, WatchClick callback) {
         this.list = list;
         this.context = context;
+        this.callback = callback;
     }
 
     public BandAdapter() {
@@ -42,6 +45,7 @@ public class BandAdapter extends RecyclerView.Adapter<BandAdapter.BandViewHolder
     public void onBindViewHolder(@NonNull BandViewHolder holder, int position) {
         BandModel model = list.get(position);
         holder.bind(model);
+        holder.itemView.setOnClickListener(v -> callback.clickListener(model));
     }
 
     @Override

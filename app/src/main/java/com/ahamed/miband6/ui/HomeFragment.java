@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.ahamed.miband6.R;
@@ -22,6 +23,7 @@ import com.ahamed.miband6.databinding.FragmentHomeBinding;
 import com.ahamed.miband6.model.BandModel;
 import com.ahamed.miband6.utils.Fab;
 import com.ahamed.miband6.utils.FileDownloader;
+import com.ahamed.miband6.viewmodel.LocalViewModel;
 import com.ahamed.miband6.viewmodel.WatchViewModel;
 import com.gordonwong.materialsheetfab.MaterialSheetFab;
 
@@ -46,10 +48,14 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         FragmentHomeBinding binding = FragmentHomeBinding.inflate(inflater, container, false);
         WatchViewModel watchViewModel = new ViewModelProvider(requireActivity()).get(WatchViewModel.class);
+        LocalViewModel localViewModel = new ViewModelProvider(requireActivity()).get(LocalViewModel.class);
         fileDownloader = new FileDownloader();
 
         list = new ArrayList<>();
-        BandAdapter adapter = new BandAdapter(list, requireActivity());
+        BandAdapter adapter = new BandAdapter(list, requireActivity(), bandModel -> {
+            Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_watchFragment);
+            localViewModel.setMutableLiveData(bandModel);
+        });
 
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         binding.rvBand.setLayoutManager(layoutManager);

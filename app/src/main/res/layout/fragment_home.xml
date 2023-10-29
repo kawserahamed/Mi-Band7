@@ -10,13 +10,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/design_default_color_primary"
         android:gravity="center"
         tools:context=".ui.HomeFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_band"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/card_background"
+            android:paddingHorizontal="5dp" />
 
 
         <com.ahamed.miband6.utils.Fab
@@ -26,6 +30,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="30dp"
+            android:backgroundTint="@color/design_default_color_primary"
             android:src="@drawable/baseline_filter_list_24"
             android:tint="@color/white" />
 
